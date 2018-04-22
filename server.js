@@ -1,20 +1,20 @@
 
 
 function start() {
-    const http = require('http');
+    const http = require('http');//调用http模块
 
-    const hostname = '127.0.0.1';
-    const port = 3000;
+    const hostname = '127.0.0.1';//接口名字
+    const port = 3000;//设置端口
     const server = http.createServer((req, res) => {
         console.log("111");//打印两次的原因是访问 http://localhost:3000/ 时尝试读取 http://localhost:3000/favicon.ico
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World\n');
+        res.statusCode = 200;//设置http状态码，标志成功连接
+        res.setHeader('Content-Type', 'text/plain');//http消息头，设置应答头，html格式
+        res.end('Hello World\n');//返回消息
 
 });
 
     server.listen(port, hostname, () => {
-        console.log(`Server running at http://${hostname}:${port}/`);
+        console.log(`Server running at http://${hostname}:${port}/`);//在后台打印
 });
 
 }
@@ -31,4 +31,7 @@ function start() {
 // var rocker = require('./rocker.js');
 // //在文件引入进来之后调用时记得不要遗漏（）括号；
 // rocker.test(); // 'function abc.'
-exports.start=start();
+//module.exports.start=start();
+console.log(module.exports.start);
+//exports.start=start();
+console.log("yyyyy");
